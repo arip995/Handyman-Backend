@@ -7,7 +7,8 @@ urlpatterns = [
     # path('details/',views.detail,{'id': 7})
     path('details/',views.worker_list),
     path('signup/',views.worker_authentication),
-    path('signin/',views.worker_authenticate)
+    path('signin/',views.worker_authenticate),
+    path('signinaccesstoken/',views.worker_authenticateaccesstoken)
     # path('details/',views.hello_world)
 
 ]
