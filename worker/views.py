@@ -21,7 +21,7 @@ from django.conf import settings
 
 
 
-@csrf_exempt
+# @csrf_exempt
 @api_view(['GET', 'POST'])
 def worker_list(request):
     if request.method == 'GET':
@@ -64,9 +64,9 @@ def worker_authentication(request):
 
 
         ##Create access token with some salt
-        password = str(request.data['password']+str(request.data['username'])+str(request.data['mobileNumber']))
+        accessToken = str(request.data['password']+str(request.data['username'])+str(request.data['mobileNumber']))
         cipher_suite = Fernet(settings.ENCRYPT_KEY)
-        encrypted_text = cipher_suite.encrypt(password.encode('ascii'))
+        encrypted_text = cipher_suite.encrypt(accessToken.encode('ascii'))
         encrypted_text = base64.urlsafe_b64encode(encrypted_text).decode("ascii")
         request.data['accessToken'] = encrypted_text
 
@@ -106,7 +106,7 @@ def worker_authenticate(request):
                 "accessToken"    :worker_serializer.data[0]['accessToken']
             }
                 return JsonResponse(data)
-            return JsonResponse({"error":'password not found'},status=status.HTTP_400_BAD_REQUEST)
+            return JsonResponse({"error":'Invalid credentials'},status=status.HTTP_400_BAD_REQUEST)
         # return Response({"data":'false'})
         # return JsonResponse(worker_serializer.data)
 
@@ -131,5 +131,5 @@ def worker_authenticateaccesstoken(request):
                 "accessToken"    :worker_serializer.data[0]['accessToken']
             }
             return JsonResponse(data)
-        return JsonResponse({"error":'user not found'},status=status.HTTP_400_BAD_REQUEST)
+        return JsonResponse({"error":'Invalid credentials. Please Sign in'},status=status.HTTP_400_BAD_REQUEST)
 
