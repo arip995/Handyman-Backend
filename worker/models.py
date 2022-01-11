@@ -5,11 +5,11 @@ class WorkerDetails(models.Model):
 
     id              = models.AutoField(primary_key=True,unique=True)
 
-    firstName       = models.CharField(max_length=30, default="")
+    firstName       = models.CharField(max_length=30)
 
-    lastName        = models.CharField(max_length=30, default="")
+    lastName        = models.CharField(max_length=30)
 
-    mobileNumber    = models.CharField(max_length=10,unique=True)
+    mobileNumber    = models.BigIntegerField(max_length=10,unique=True)
 
     username        = models.CharField(max_length=10,unique=True)
 
