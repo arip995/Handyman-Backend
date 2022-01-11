@@ -71,7 +71,11 @@ def handymanadmin_authenticate(request):
                 "name"           :handymanadmin_serializer.data[0]['name'],
                 "username"       :handymanadmin_serializer.data[0]['username'],
                 "createdOn"      :handymanadmin_serializer.data[0]['createdOn'],
-                "accessToken"    :handymanadmin_serializer.data[0]['accessToken']
+                "accessToken"    :handymanadmin_serializer.data[0]['accessToken'],
+                "branchId"       :handymanadmin_serializer.data[0]['branchId'],
+                "stateName"      :handymanadmin_serializer.data[0]['stateName'],
+                "country"        :handymanadmin_serializer.data[0]['country'],
+                "status"         :handymanadmin_serializer.data[0]['status']
             }
             return Response(data)
         return JsonResponse({"error":'Invalid credentials'},status=status.HTTP_400_BAD_REQUEST)
@@ -111,7 +115,11 @@ def handymanadmin_authenticateaccesstoken(request,accessToken):
                 "name"           :handymanadmin_serializer.data[0]['name'],
                 "username"       :handymanadmin_serializer.data[0]['username'],
                 "createdOn"      :handymanadmin_serializer.data[0]['createdOn'],
-                "accessToken"    :handymanadmin_serializer.data[0]['accessToken']
+                "accessToken"    :handymanadmin_serializer.data[0]['accessToken'],
+                "branchId"       :handymanadmin_serializer.data[0]['branchId'],
+                "stateName"      :handymanadmin_serializer.data[0]['stateName'],
+                "country"        :handymanadmin_serializer.data[0]['country'],
+                "status"         :handymanadmin_serializer.data[0]['status']
             }
             return Response(data)
         return JsonResponse({"error":'Invalid credentials. Please Signin'},status=status.HTTP_400_BAD_REQUEST)
@@ -126,7 +134,11 @@ def handymanadmin_authenticateaccesstoken(request,accessToken):
                 "name"           :handymanadmin_serializer.data[0]['name'],
                 "username"       :handymanadmin_serializer.data[0]['username'],
                 "createdOn"      :handymanadmin_serializer.data[0]['createdOn'],
-                "accessToken"    :handymanadmin_serializer.data[0]['accessToken']
+                "accessToken"    :handymanadmin_serializer.data[0]['accessToken'],
+                "branchId"       :handymanadmin_serializer.data[0]['branchId'],
+                "stateName"      :handymanadmin_serializer.data[0]['stateName'],
+                "country"        :handymanadmin_serializer.data[0]['country'],
+                "status"         :handymanadmin_serializer.data[0]['status']
             }
             return Response(data)
         return JsonResponse({"error":'Invalid credentials. Please Signin'},status=status.HTTP_400_BAD_REQUEST)

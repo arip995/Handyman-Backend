@@ -15,5 +15,13 @@ class HandymanAdminDetails(models.Model):
 
     accessToken     = models.CharField(max_length=500)
 
+    status          = models.BooleanField(null=True)
+
+    branchId        = models.IntegerField(default=0)
+
+    stateName       = models.CharField(max_length=30,default="")
+
+    country         = models.CharField(max_length=30,default="INDIA")
+
     createdOn       = models.DateField()
 
