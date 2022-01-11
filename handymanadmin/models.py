@@ -7,7 +7,7 @@ class HandymanAdminDetails(models.Model):
 
     name            = models.CharField(max_length=30)
 
-    mobileNumber    = models.CharField(max_length=10,unique=True)
+    mobileNumber    = models.BigIntegerField(max_length=10,unique=True)
 
     username        = models.CharField(max_length=10,unique=True)
 
@@ -17,9 +17,9 @@ class HandymanAdminDetails(models.Model):
 
     status          = models.BooleanField(null=True)
 
-    branchId        = models.IntegerField(default=0)
+    branchId        = models.IntegerField(max_length=3)
 
-    stateName       = models.CharField(max_length=30,default="")
+    stateName       = models.CharField(max_length=30)
 
     country         = models.CharField(max_length=30,default="INDIA")
 
