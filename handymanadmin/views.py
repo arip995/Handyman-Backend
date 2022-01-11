@@ -75,13 +75,49 @@ def handymanadmin_authenticate(request):
             }
             return Response(data)
         return JsonResponse({"error":'Invalid credentials'},status=status.HTTP_400_BAD_REQUEST)
+    # elif(request.method == 'GET'):
+    #     handymanadmin  = HandymanAdminDetails.objects.raw('SELECT * FROM handymanadmin_handymanadmindetails WHERE username =  %s',[username])
+    #     if (handymanadmin):
+    #         handymanadmin_serializer = HandymanAdminDetailsSerializer(handymanadmin,many=True)
+    #         txt = base64.urlsafe_b64decode(password)
+    #         cipher_suite = Fernet(settings.ENCRYPT_KEY)
+    #         decrypt_text = cipher_suite.decrypt(txt).decode("ascii")
+    #         if password == decrypt_text:
+    #             data = {
+    #             "id"             :handymanadmin_serializer.data[0]['id'],
+    #             "name"           :handymanadmin_serializer.data[0]['name'],
+    #             "username"       :handymanadmin_serializer.data[0]['username'],
+    #             "createdOn"      :handymanadmin_serializer.data[0]['createdOn'],
+    #             "accessToken"    :handymanadmin_serializer.data[0]['accessToken']
+    #         }
+    #         return Response(data)
+    #     return JsonResponse({"error":'Invalid credentials'},status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
 
 
 #api to authenticate admin by access token
 @api_view(['GET', 'POST'])
-def handymanadmin_authenticateaccesstoken(request):
+def handymanadmin_authenticateaccesstoken(request,accessToken):
     if(request.method == 'POST'):
         accessToken = request.data['accessToken']
+        handymanadmin  = HandymanAdminDetails.objects.raw('SELECT * FROM handymanadmin_handymanadmindetails WHERE "accessToken" =  %s',[accessToken])
+        if (handymanadmin):
+            handymanadmin_serializer = HandymanAdminDetailsSerializer(handymanadmin,many=True)
+            data = {
+                "id"             :handymanadmin_serializer.data[0]['id'],
+                "name"           :handymanadmin_serializer.data[0]['name'],
+                "username"       :handymanadmin_serializer.data[0]['username'],
+                "createdOn"      :handymanadmin_serializer.data[0]['createdOn'],
+                "accessToken"    :handymanadmin_serializer.data[0]['accessToken']
+            }
+            return Response(data)
+        return JsonResponse({"error":'Invalid credentials. Please Signin'},status=status.HTTP_400_BAD_REQUEST)
+    # return JsonResponse({"error":'Invalid credentials. Please Signin'},status=status.HTTP_400_BAD_REQUEST)
+
+    elif(request.method == 'GET'):
         handymanadmin  = HandymanAdminDetails.objects.raw('SELECT * FROM handymanadmin_handymanadmindetails WHERE "accessToken" =  %s',[accessToken])
         if (handymanadmin):
             handymanadmin_serializer = HandymanAdminDetailsSerializer(handymanadmin,many=True)

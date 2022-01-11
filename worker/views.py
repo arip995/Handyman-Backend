@@ -133,3 +133,21 @@ def worker_authenticateaccesstoken(request):
             return JsonResponse(data)
         return JsonResponse({"error":'Invalid credentials. Please Sign in'},status=status.HTTP_400_BAD_REQUEST)
 
+    # elif request.method == 'GET':
+    #     print(accesstoken)
+    #     user = accesstoken
+    #     worker = WorkerDetails.objects.raw('SELECT * FROM worker_workerdetails WHERE "accessToken" =  %s',[user])
+    #     if(worker):
+    #         worker_serializer = WorkerDetailsSerializer(worker, many=True)
+    #         data = {
+    #             "id"             :worker_serializer.data[0]['id'],
+    #             "firstName"      :worker_serializer.data[0]['firstName'],
+    #             "lastName"      :worker_serializer.data[0]['lastName'],
+    #             "username"       :worker_serializer.data[0]['username'],
+    #             "worktype"       :worker_serializer.data[0]['worktype'],
+    #             "isActivated"    :worker_serializer.data[0]['isActivated'],
+    #             "createdOn"      :worker_serializer.data[0]['createdOn'],
+    #             "accessToken"    :worker_serializer.data[0]['accessToken']
+    #         }
+    #         return JsonResponse(data)
+    #     return JsonResponse({"error":'Invalid credentials. Please Sign in'},status=status.HTTP_400_BAD_REQUEST)
