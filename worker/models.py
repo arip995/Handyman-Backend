@@ -9,7 +9,7 @@ class WorkerDetails(models.Model):
 
     lastName        = models.CharField(max_length=30)
 
-    mobileNumber    = models.BigIntegerField(max_length=10,unique=True)
+    mobileNumber    = models.BigIntegerField(unique=True)
 
     username        = models.CharField(max_length=10,unique=True)
 
