@@ -123,7 +123,7 @@ def worker_authenticateaccesstoken(request):
             data = {
                 "id"             :worker_serializer.data[0]['id'],
                 "firstName"      :worker_serializer.data[0]['firstName'],
-                "lastName"      :worker_serializer.data[0]['lastName'],
+                "lastName"       :worker_serializer.data[0]['lastName'],
                 "username"       :worker_serializer.data[0]['username'],
                 "worktype"       :worker_serializer.data[0]['worktype'],
                 "isActivated"    :worker_serializer.data[0]['isActivated'],
@@ -139,15 +139,37 @@ def worker_authenticateaccesstoken(request):
     #     worker = WorkerDetails.objects.raw('SELECT * FROM worker_workerdetails WHERE "accessToken" =  %s',[user])
     #     if(worker):
     #         worker_serializer = WorkerDetailsSerializer(worker, many=True)
-    #         data = {
-    #             "id"             :worker_serializer.data[0]['id'],
-    #             "firstName"      :worker_serializer.data[0]['firstName'],
-    #             "lastName"      :worker_serializer.data[0]['lastName'],
-    #             "username"       :worker_serializer.data[0]['username'],
-    #             "worktype"       :worker_serializer.data[0]['worktype'],
-    #             "isActivated"    :worker_serializer.data[0]['isActivated'],
-    #             "createdOn"      :worker_serializer.data[0]['createdOn'],
-    #             "accessToken"    :worker_serializer.data[0]['accessToken']
-    #         }
+            # data = {
+            #     "id"             :worker_serializer.data[0]['id'],
+            #     "firstName"      :worker_serializer.data[0]['firstName'],
+            #     "lastName"      :worker_serializer.data[0]['lastName'],
+            #     "username"       :worker_serializer.data[0]['username'],
+            #     "worktype"       :worker_serializer.data[0]['worktype'],
+            #     "isActivated"    :worker_serializer.data[0]['isActivated'],
+            #     "createdOn"      :worker_serializer.data[0]['createdOn'],
+            #     "accessToken"    :worker_serializer.data[0]['accessToken']
+            # }
     #         return JsonResponse(data)
     #     return JsonResponse({"error":'Invalid credentials. Please Sign in'},status=status.HTTP_400_BAD_REQUEST)
+
+
+# API for getting the data based on the worker ID
+@api_view(['GET', 'POST'])
+def get_worker_details_by_id(request,id):
+    try:
+        worker = WorkerDetails.objects.get(id=id)
+    except WorkerDetails.DoesNotExist: 
+        return JsonResponse({"error":'Worker doesnot exist'},status=status.HTTP_404_NOT_FOUND)
+    worker_serializer = WorkerDetailsSerializer(worker)
+    print(worker_serializer.data)
+    if request.method == 'GET':
+        data = {
+                "id"             :worker_serializer.data['id'],
+                "firstName"      :worker_serializer.data['firstName'],
+                "lastName"       :worker_serializer.data['lastName'],
+                "username"       :worker_serializer.data['username'],
+                "worktype"       :worker_serializer.data['worktype'],
+                "isActivated"    :worker_serializer.data['isActivated'],
+                "createdOn"      :worker_serializer.data['createdOn'],
+            }
+        return JsonResponse(data)

@@ -8,7 +8,8 @@ urlpatterns = [
     path('details/',views.worker_list),
     path('signup/',views.worker_authentication),
     path('signin/',views.worker_authenticate),
-    path('signinaccesstoken/',views.worker_authenticateaccesstoken)
+    path('signinaccesstoken/',views.worker_authenticateaccesstoken),
+    path('detail/<id>/',views.get_worker_details_by_id)
     # path('details/',views.hello_world)
 
 ]
