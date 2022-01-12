@@ -30,7 +30,9 @@ class WorkerDetails(models.Model):
 
 class WorkerInformation(models.Model):
 
-    foreignId         = models.ForeignKey(WorkerDetails, on_delete=models.CASCADE)
+    foreignId         = models.OneToOneField(WorkerDetails, on_delete=models.CASCADE,primary_key=True)
+
+    key               = models.IntegerField(unique=True)
 
     personalDetails   = JSONField(null=True)
 
