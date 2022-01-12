@@ -5,18 +5,15 @@ from django.http import HttpResponse, request
 from rest_framework.fields import JSONField
 from worker.models import WorkerDetails
 from worker.serializers import WorkerDetailsSerializer
+from worker.serializers import WorkerDetailSerializer
 from rest_framework import serializers, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
-from rest_framework import generics
-import psycopg2
 from cryptography.fernet import Fernet
 import base64
-import logging
-import traceback
 from django.conf import settings
 
 
@@ -26,7 +23,7 @@ from django.conf import settings
 def worker_list(request):
     if request.method == 'GET':
         worker = WorkerDetails.objects.all()
-        worker_serializer = WorkerDetailsSerializer(worker,many=True)
+        worker_serializer = WorkerDetailSerializer(worker,many=True)
         # if worker_serializer.is_valid():
         return Response(worker_serializer.data)
         
