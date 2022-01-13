@@ -3,13 +3,18 @@ from rest_framework.decorators import api_view
 from worker.serializers import WorkerInformationSerializer
 from rest_framework import status
 from rest_framework.response import Response
-from worker.models import WorkerInformation
+from worker.models import WorkerDetails, WorkerInformation
 from rest_framework.parsers import JSONParser
 
 
 @api_view(['GET', 'POST'])
 def add_worker_information(request):
     if request.method == 'POST':
+        try:
+            worker = WorkerDetails.objects.get(id=request.data['foreignId'])
+        except WorkerDetails.DoesNotExist: 
+            return JsonResponse({"error":'Worker doesnot exist with this id'},status=status.HTTP_404_NOT_FOUND)
+    
         worker_information_serializer = WorkerInformationSerializer(data=request.data)
         if worker_information_serializer.is_valid():
             worker_information_serializer.save()
