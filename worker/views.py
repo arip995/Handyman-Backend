@@ -168,5 +168,6 @@ def get_worker_details_by_id(request,id):
                 "worktype"       :worker_serializer.data['worktype'],
                 "isActivated"    :worker_serializer.data['isActivated'],
                 "createdOn"      :worker_serializer.data['createdOn'],
+                "mobileNumber"   :worker_serializer.data['mobileNumber'],
             }
         return JsonResponse(data)
