@@ -11,7 +11,8 @@ urlpatterns = [
     path('signin/',views.worker_authenticate),
     path('signinaccesstoken/',views.worker_authenticateaccesstoken),
     path('detail/<id>/',views.get_worker_details_by_id),
-    path('add/information/',viewsInformation.add_worker_information)
+    path('add/information/',viewsInformation.add_worker_information),
+    path('update/information/<id>/',viewsInformation.update_worker_information)
     # path('details/',views.hello_world)
 
 ]
