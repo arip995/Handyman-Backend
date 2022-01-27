@@ -49,7 +49,7 @@ def worker_authentication(request):
         return Response({"data":'false'})
         # return JsonResponse(worker_serializer.data)
 
-        # In order to serialize objects, we must set'
+        # In order to serialize objects, we must set 'safe=False'
     elif request.method == 'POST':
         user = request.data['username']
         #password encryption
@@ -95,7 +95,7 @@ def worker_authenticate(request):
                 data = {
                 "id"             :worker_serializer.data[0]['id'],
                 "firstName"      :worker_serializer.data[0]['firstName'],
-                "lastName"      :worker_serializer.data[0]['lastName'],
+                "lastName"       :worker_serializer.data[0]['lastName'],
                 "username"       :worker_serializer.data[0]['username'],
                 "worktype"       :worker_serializer.data[0]['worktype'],
                 "isActivated"    :worker_serializer.data[0]['isActivated'],
@@ -171,3 +171,28 @@ def get_worker_details_by_id(request,id):
                 "mobileNumber"   :worker_serializer.data['mobileNumber'],
             }
         return JsonResponse(data)
+
+
+@api_view(['PUT', 'PATCH'])
+def worker_update(request,id):
+    try:
+        worker = WorkerDetails.objects.get(id=id)
+    except WorkerDetails.DoesNotExist: 
+        return JsonResponse({"error":'Worker doesnot exist'},status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'PATCH':
+        worker_details_serializer = WorkerDetailsSerializer(worker,data=request.data)
+        if(worker_details_serializer.is_valid()):
+            worker_details_serializer.save()
+            data = {
+                "id"             :worker_details_serializer.data['id'],
+                "firstName"      :worker_details_serializer.data['firstName'],
+                "lastName"       :worker_details_serializer.data['lastName'],
+                "username"       :worker_details_serializer.data['username'],
+                "worktype"       :worker_details_serializer.data['worktype'],
+                "isActivated"    :worker_details_serializer.data['isActivated'],
+                "createdOn"      :worker_details_serializer.data['createdOn'],
+                "mobileNumber"   :worker_details_serializer.data['mobileNumber'],
+            }
+            return JsonResponse(data)
+        return JsonResponse(worker_details_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

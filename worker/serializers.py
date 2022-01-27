@@ -14,7 +14,7 @@ class WorkerDetailsSerializer(serializers.ModelSerializer):
 class WorkerDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkerDetails
-        fields = ('id','firstName','lastName','username','worktype','isActivated','createdOn')
+        fields = ('id','firstName','lastName','username','worktype','isActivated','createdOn','mobileNumber')
         # fields = '__all__'
 
 

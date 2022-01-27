@@ -19,20 +19,18 @@ class WorkerDetails(models.Model):
 
     password          = models.CharField(max_length=500)
 
-    worktype          = models.CharField(max_length=30,null=True)
+    worktype          = models.CharField(max_length=30)
 
     isActivated       = models.BooleanField(null=True)
 
     accessToken       = models.CharField(max_length=500)
 
-    createdOn         = models.DateField()
+    createdOn         = models.DateField(null=True)
 
 
 class WorkerInformation(models.Model):
 
     foreignId         = models.OneToOneField(WorkerDetails, on_delete=models.CASCADE,primary_key=True)
-
-    # key               = models.IntegerField(unique=True)
 
     personalDetails   = JSONField(null=True)
 
