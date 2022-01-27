@@ -22,7 +22,7 @@ from django.conf import settings
 @api_view(['GET', 'POST'])
 def worker_list(request):
     if request.method == 'GET':
-        worker = WorkerDetails.objects.raw('SELECT * FROM worker_workerdetails')
+        worker = WorkerDetails.objects.all()
         worker_serializer = WorkerDetailSerializer(worker,many=True)
         # if worker_serializer.is_valid():
         return Response(worker_serializer.data)
