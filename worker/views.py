@@ -49,7 +49,7 @@ def worker_authentication(request):
         return Response({"data":'false'})
         # return JsonResponse(worker_serializer.data)
 
-        # In order to serialize objects, we must set'
+        # In order to serialize objects, we must set 'safe=False'
     elif request.method == 'POST':
         user = request.data['username']
         #password encryption
