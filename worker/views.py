@@ -173,14 +173,14 @@ def get_worker_details_by_id(request,id):
         return JsonResponse(data)
 
 
-@api_view(['PUT', 'DELETE'])
+@api_view(['PUT', 'PATCH'])
 def worker_update(request,id):
     try:
         worker = WorkerDetails.objects.get(id=id)
     except WorkerDetails.DoesNotExist: 
         return JsonResponse({"error":'Worker doesnot exist'},status=status.HTTP_404_NOT_FOUND)
     
-    if request.method == 'PUT':
+    if request.method == 'PATCH':
         worker_details_serializer = WorkerDetailsSerializer(worker,data=request.data)
         if(worker_details_serializer.is_valid()):
             worker_details_serializer.save()

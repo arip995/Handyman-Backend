@@ -9,21 +9,21 @@ class WorkerDetails(models.Model):
 
     id                = models.AutoField(primary_key=True,unique=True)
 
-    firstName         = models.CharField(max_length=30,null=True)
+    firstName         = models.CharField(max_length=30)
 
-    lastName          = models.CharField(max_length=30,null=True)
+    lastName          = models.CharField(max_length=30)
 
-    mobileNumber      = models.BigIntegerField(unique=True,null=True)
+    mobileNumber      = models.BigIntegerField(unique=True)
 
-    username          = models.CharField(max_length=10,unique=True,null=True)
+    username          = models.CharField(max_length=10,unique=True,default="")
 
-    password          = models.CharField(max_length=500,null=True)
+    password          = models.CharField(max_length=500,default="")
 
-    worktype          = models.CharField(max_length=30,null=True)
+    worktype          = models.CharField(max_length=30,default="")
 
     isActivated       = models.BooleanField(null=True)
 
-    accessToken       = models.CharField(max_length=500,null=True)
+    accessToken       = models.CharField(max_length=500)
 
     createdOn         = models.DateField(null=True)
 
