@@ -180,8 +180,8 @@ def worker_update(request,id):
     except WorkerDetails.DoesNotExist: 
         return JsonResponse({"error":'Worker doesnot exist'},status=status.HTTP_404_NOT_FOUND)
     
-    if request.method == 'PATCH':
-        worker_details_serializer = WorkerDetailsSerializer(worker,data=request.data)
+    if request.method == 'PUT':
+        worker_details_serializer = WorkerDetailsSerializer(worker,data=request.data,partial=True)
         if(worker_details_serializer.is_valid()):
             worker_details_serializer.save()
             data = {
