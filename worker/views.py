@@ -184,5 +184,15 @@ def worker_update(request,id):
         worker_details_serializer = WorkerDetailsSerializer(worker,data=request.data)
         if(worker_details_serializer.is_valid()):
             worker_details_serializer.save()
-            return JsonResponse(worker_details_serializer.data)
+            data = {
+                "id"             :worker_details_serializer.data['id'],
+                "firstName"      :worker_details_serializer.data['firstName'],
+                "lastName"       :worker_details_serializer.data['lastName'],
+                "username"       :worker_details_serializer.data['username'],
+                "worktype"       :worker_details_serializer.data['worktype'],
+                "isActivated"    :worker_details_serializer.data['isActivated'],
+                "createdOn"      :worker_details_serializer.data['createdOn'],
+                "mobileNumber"   :worker_details_serializer.data['mobileNumber'],
+            }
+            return JsonResponse(data)
         return JsonResponse(worker_details_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
