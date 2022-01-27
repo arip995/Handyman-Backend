@@ -15,11 +15,11 @@ class WorkerDetails(models.Model):
 
     mobileNumber      = models.BigIntegerField(unique=True)
 
-    username          = models.CharField(max_length=10,unique=True,default="")
+    username          = models.CharField(max_length=10,unique=True)
 
-    password          = models.CharField(max_length=500,default="")
+    password          = models.CharField(max_length=500)
 
-    worktype          = models.CharField(max_length=30,default="")
+    worktype          = models.CharField(max_length=30)
 
     isActivated       = models.BooleanField(null=True)
 
@@ -31,8 +31,6 @@ class WorkerDetails(models.Model):
 class WorkerInformation(models.Model):
 
     foreignId         = models.OneToOneField(WorkerDetails, on_delete=models.CASCADE,primary_key=True)
-
-    # key               = models.IntegerField(unique=True)
 
     personalDetails   = JSONField(null=True)
 
