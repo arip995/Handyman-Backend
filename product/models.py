@@ -3,7 +3,7 @@ from django.db.models.fields.json import JSONField
 
 
 # Create your models here.
-class HandymanAdminDetails(models.Model):
+class ProductDetails(models.Model):
 
     ProductId                      = models.AutoField(primary_key=True,unique=True)
 
