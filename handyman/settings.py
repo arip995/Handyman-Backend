@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'worker',
     'customer',
     'handymanadmin',
+    'product',
     'rest_framework',
     'corsheaders'
 ]
