@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.db.models.fields.json import JSONField
 
@@ -15,6 +16,6 @@ class ProductDetails(models.Model):
 
     totalTime                      = models.IntegerField()
 
-    productCompleteDescription     = JSONField(null=True)
+    productCompleteDescription     = JSONField()
 
     productCategory                = models.CharField(max_length=20)
