@@ -6,7 +6,7 @@ from django.db.models.fields.json import JSONField
 # Create your models here.
 class ProductDetails(models.Model):
 
-    ProductId                      = models.AutoField(primary_key=True,unique=True)
+    productId                      = models.AutoField(primary_key=True,unique=True)
 
     productShortDecription         = models.CharField(max_length=500,unique=True)
 
