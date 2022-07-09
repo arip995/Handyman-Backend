@@ -1,0 +1,161 @@
+###GET all the list of workers
+GET http://127.0.0.1:8000/worker/details/ HTTP/1.1
+
+
+###GET the detail of worker by id
+GET http://127.0.0.1:8000/worker/detail/44/ HTTP/1.1
+
+
+###Sign Up
+POST http://127.0.0.1:8000/worker/signup/ HTTP/1.1
+content-type: application/json
+
+{
+        "firstName": "arindam",
+        "lastName": "arindam",
+        "mobileNumber": "7327036789",
+        "username": "arindam2",
+        "password": "arindam123",
+        "createdOn": "2005-01-01",
+        "worktype":"Electrician"
+}
+
+
+###Sign In
+POST http://127.0.0.1:8000/worker/signin/ HTTP/1.1
+content-type: application/json
+
+{
+    "username": "arindam",
+    "password" : "sanjukta"
+}
+
+
+###Sign In using accessToken
+POST http://127.0.0.1:8000/worker/signinaccesstoken/ HTTP/1.1
+content-type: application/json
+
+{
+    "accessToken": "Z0FBQUFBQmgzblZIeXowT2lscXo1bHlXaVFkQmRyMGlRQzB1dF9xajVsUGpMczlqb3d0NnpBcFpGclFFTjRXYlRhc3MydWNPSzJVWTlJRmRsZklkWVBsb2w0YXFWcjhISFNabjF2b00tY1kzNkpsQlF1a28zYTV1MnVITTZEdDlqbVdhcUVyYzA0bV9OSGoxbjR3UmVsTGY5d1cwN2UybkdNQnVUNjBjdkNES3FfZDFIcTV3bDZfTkpuZU5LWkpDQ2xndHA3UmpnUUt3WGd6R3pHcFlUNlkyanc2SmtLMDhpZWtZVmZtd21lM3lRNS1GU3NIeUlwUkdueWNzbU1xMmpMRFZfSmZiMDJrZUtfVkhuVFkwOUw1WW1RWFljVUZNY1E9PQ=="
+}
+
+
+###Update personal worker details
+PUT http://127.0.0.1:8000/worker/update/info/59/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 59,
+    "lastName": "Panda",
+    "mobileNumber": "7327035689"
+}
+
+
+###GET the personal details by id
+GET http://127.0.0.1:8000/worker/update/information/44/ HTTP/1.1
+Content-Type: application/json
+
+
+###UPDATE the personal details
+PUT http://127.0.0.1:8000/worker/update/information/44/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "foreignId": 44,
+    "personalDetails": {
+        "gender": "Male",
+        "salutation": "Mrs",
+        "dateOfBirth": "30-03-2002",
+        "nationality": "INDIA",
+        "martialStatus": "Married",
+        "alternateMobileNumber": 7327039735,
+        "educationalQualification": "10th pass"
+    },
+    "familyDetails": {
+        "fatherFirstName": "Chandra",
+        "fatherLastName": "Sanjukta",
+        "motherFirstName": "a",
+        "motherLastName": "a",
+        "spouseFirstName": null,
+        "spouseLastName": null
+    },
+    "residenceDetails": {
+        "state": "Odisha",
+        "street": "New A.G Colony",
+        "pincode": 751012,
+        "district": "Khordha",
+        "houseNo": "Qr.no.43",
+        "landmark": "Kalinga stadium",
+        "residenceYears": 11,
+        "ownership":"Own"
+    },
+    "workDetails": {
+        "salary": "40 - 50 thousand",
+        "ownShop": "True",
+        "experience": 10,
+        "shopDetails": {
+            "pincode": 751012,
+            "landmark": "Kalinga stadium",
+            "shopName": "dj",
+            "shopAddress": "No. 351",
+            "ownershipYears": 5
+        }
+    },
+    "kyc":null,
+    "bankDetails": {
+        "IFSCcode": "SBI8756932",
+        "bankName": "SBI",
+        "accountNumber": 741258963256,
+        "accountHoldersName": "Arindam panda"
+    }
+}
+
+
+###ADD personal details for the first time
+POST http://127.0.0.1:8000/worker/add/information/ HTTP/1.1
+content-type: application/json
+
+{
+    "foreignId" : 44,
+        "personalDetails" : {
+            "name":"ari",
+            "dj"  :"panda"
+        },
+        "familyDetails": {
+            "fathersName":"Chandra",
+            "modhersName":"Sanjukta",
+            "spouseName":null
+        },
+        "residenceDetails":{
+            "house no":43,
+            "street":"New A.G Colony",
+            "city":"Bhubaneswar",
+            "district":"Khordha"
+        },
+        "workDetails": {
+            "OwnOffice":"True",
+            "Salary":"40 - 50 thousand",
+            "experience":10,
+            "workType":"Salon for Men",
+            "communicationDetails":{
+                "mobileNumber":7327039736,
+                "alternateMobileNumber":7327039735,
+                "mail":"arindampanda2002@gmail.com"
+            }
+        },
+        "kyc":{
+            "ageProof":"True",
+            "IDproof":"True",
+            "addressProof":"True",
+            "aadharID":78945612302,
+            "panID":789512365487,
+            "anyOtherID":"646589732dsfs"
+        },
+        "bankDetails":{
+            "accountHoldersName":"Arindam panda",
+            "accountNumber":741258963256,
+            "IFSCcode":"SBI8756932",
+            "bankName":"SBI"
+        },
+    "key":"44"
+}

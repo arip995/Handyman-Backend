@@ -1,0 +1,34 @@
+###Sign Up
+POST http://127.0.0.1:8000/handymanadmin/signup/ HTTP/1.1
+content-type: application/json
+
+ {
+        "name": "Arpita Tripathy",
+        "mobileNumber": "7327039236",
+        "username": "arpita",
+        "password": "arpita123",
+        "branchId": 20,
+        "stateName":"Odisha",
+        "cityName": "Bhubaneswar",
+        "country":"INDIA",
+        "createdOn": "2005-01-01"
+}
+
+
+###Sign In
+POST http://127.0.0.1:8000/handymanadmin/signin/ HTTP/1.1
+content-type: application/json
+
+{
+    "username": "arindam",
+    "password" : "sanjukta"
+}
+
+
+###Sign In using accessToken
+GET http://127.0.0.1:8000/handymanadmin/signinaccesstoken/Z0FBQUFBQmgzbXdMTC1PWVBZcmFKV0JnaTdTaFhtbTFucXF3TnlWYy0tUHUycDJKLW94YldaZmdCcHJCT0dSVC1XbWl0WG5HYWltclY0MnRSRG8tTEthWG5Lc3hjN1o2c25HTnVubkJVNk9KeW9RYm15X2JSTDZYZ0dBWndvdmF3VzZJRzZOMUJZdlF0OWJOOV81TDlpbWZHWmFJam1RM1M0eVBRa1VYNTdlVXNsNHp5ck5fWVpKM1RrUk9QcURCYUk2MUtVZGFzRUotMUo1MXBIeThjTXJ2ZzlqUVdvcnRod1JnTTNQQ2RKQXBHbTJ6UHVwdlhtX3RHazhMLVhkbGs3RllMX20wTVBpWEFNVWNZZGR0Nm9GY1BLZXUxcXROMkE9PQ==/ HTTP/1.1
+content-type: application/json
+
+{
+    "accessToken": "Z0FBQUFBQmgzbXdMTC1PWVBZcmFKV0JnaTdTaFhtbTFucXF3TnlWYy0tUHUycDJKLW94YldaZmdCcHJCT0dSVC1XbWl0WG5HYWltclY0MnRSRG8tTEthWG5Lc3hjN1o2c25HTnVubkJVNk9KeW9RYm15X2JSTDZYZ0dBWndvdmF3VzZJRzZOMUJZdlF0OWJOOV81TDlpbWZHWmFJam1RM1M0eVBRa1VYNTdlVXNsNHp5ck5fWVpKM1RrUk9QcURCYUk2MUtVZGFzRUotMUo1MXBIeThjTXJ2ZzlqUVdvcnRod1JnTTNQQ2RKQXBHbTJ6UHVwdlhtX3RHazhMLVhkbGs3RllMX20wTVBpWEFNVWNZZGR0Nm9GY1BLZXUxcXROMkE9PQ=="
+}
