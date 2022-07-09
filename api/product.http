@@ -1,0 +1,29 @@
+###ADD a product
+POST http://127.0.0.1:8000/product/add-product/ HTTP/1.1
+content-type: application/json
+
+{
+    "productShortDecription": "ddgchbfghddddd",
+    "productName": "showsss",
+    "price":5000,
+    "totalTime":200,
+    "productCompleteDescription":{
+        "a":"fsdfasdf",
+        "b":"fsdfasdf"
+    },
+    "productCategory":"salon for men"
+}
+
+
+###GET list of all products
+GET http://127.0.0.1:8000/product/details/ HTTP/1.1
+
+
+###EDIT a product
+PUT http://127.0.0.1:8000/product/edit-product/1/ HTTP/1.1
+Content-Type: application/json
+
+{
+        "ProductId": 1,
+        "productShortDecription": "df"
+}

@@ -1,6 +1,4 @@
-###GET all the list of workers
-GET http://127.0.0.1:8000/worker/details/ HTTP/1.1
-
+###GET list of all workers
 
 ###GET the detail of worker by id
 GET http://127.0.0.1:8000/worker/detail/44/ HTTP/1.1
