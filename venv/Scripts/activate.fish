@@ -21,7 +21,7 @@ function deactivate -d 'Exit virtualenv mode and return to the normal environmen
         if test (echo $FISH_VERSION | head -c 1) -lt 3
             set -gx PATH (_fishify_path "$_OLD_VIRTUAL_PATH")
         else
-            set -gx PATH "$_OLD_VIRTUAL_PATH"
+            set -gx PATH $_OLD_VIRTUAL_PATH
         end
         set -e _OLD_VIRTUAL_PATH
     end
@@ -57,13 +57,13 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV 'C:\Users\arind\Desktop\HandymanBackend\venv'
+set -gx VIRTUAL_ENV 'D:\Handyman\Handyman-Backend\venv'
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (echo $FISH_VERSION | head -c 1) -lt 3
    set -gx _OLD_VIRTUAL_PATH (_bashify_path $PATH)
 else
-    set -gx _OLD_VIRTUAL_PATH "$PATH"
+    set -gx _OLD_VIRTUAL_PATH $PATH
 end
 set -gx PATH "$VIRTUAL_ENV"'/Scripts' $PATH
 

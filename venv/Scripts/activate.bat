@@ -1,6 +1,6 @@
 @echo off
 
-set "VIRTUAL_ENV=C:\Users\arind\Desktop\HandymanBackend\venv"
+set "VIRTUAL_ENV=D:\Handyman\Handyman-Backend\venv"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
