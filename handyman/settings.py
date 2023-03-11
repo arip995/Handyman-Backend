@@ -86,10 +86,10 @@ WSGI_APPLICATION = 'handyman.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE'      : 'django.db.backends.postgresql_psycopg2',
-        'NAME'        : 'd3jin5mrtffce1',
-        'USER'        : 'cpackgtbjygfgf',
-        'PASSWORD'    : '7868590ae7a9a8c781be508c9f3c97a01bdd008c047a541acf3917018d3083ed',
-        'HOST'        : 'ec2-54-173-2-216.compute-1.amazonaws.com',
+        'NAME'        : 'postgres',
+        'USER'        : 'postgres',
+        'PASSWORD'    : 'Sanjukta@123',
+        'HOST'        : 'db.tolgapzvzjhldvjftile.supabase.co',
         'PORT'        : '5432'
     }
 }

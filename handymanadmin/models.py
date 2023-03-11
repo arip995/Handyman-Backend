@@ -13,6 +13,8 @@ class HandymanAdminDetails(models.Model):
 
     password        = models.CharField(max_length=500)
 
+    email           = models.CharField(max_length=50,unique=True,default="")
+
     accessToken     = models.CharField(max_length=500)
 
     status          = models.BooleanField(null=True)
