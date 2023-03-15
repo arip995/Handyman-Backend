@@ -117,6 +117,7 @@ def handymanadmin_authenticateaccesstoken(request):
                 "createdOn"      :handymanadmin_serializer.data[0]['createdOn'],
                 "branchId"       :handymanadmin_serializer.data[0]['branchId'],
                 "stateName"      :handymanadmin_serializer.data[0]['stateName'],
+                "cityName"      :handymanadmin_serializer.data[0]['cityName'],
                 "country"        :handymanadmin_serializer.data[0]['country'],
                 "status"         :handymanadmin_serializer.data[0]['status'],
                 "mobileNumber"    :handymanadmin_serializer.data[0]['mobileNumber'],
