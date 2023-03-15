@@ -115,11 +115,11 @@ def handymanadmin_authenticateaccesstoken(request):
                 "name"           :handymanadmin_serializer.data[0]['name'],
                 "username"       :handymanadmin_serializer.data[0]['username'],
                 "createdOn"      :handymanadmin_serializer.data[0]['createdOn'],
-                "accessToken"    :handymanadmin_serializer.data[0]['accessToken'],
                 "branchId"       :handymanadmin_serializer.data[0]['branchId'],
                 "stateName"      :handymanadmin_serializer.data[0]['stateName'],
                 "country"        :handymanadmin_serializer.data[0]['country'],
-                "status"         :handymanadmin_serializer.data[0]['status']
+                "status"         :handymanadmin_serializer.data[0]['status'],
+                "mobileNumber"    :handymanadmin_serializer.data[0]['mobileNumber'],
             }
             return Response(data)
         return JsonResponse({"error":'Invalid credentials. Please Signin'},status=status.HTTP_400_BAD_REQUEST)
